@@ -14,11 +14,15 @@ p {
 
 p:first-child {
     padding-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 p:last-child {
     padding-right: 5px;
     font-weight:bold;
+    white-space: nowrap;
 }
 
 li:nth-child(2n+1) p:first-child {
@@ -38,11 +42,13 @@ li:nth-child(2n) p:last-child {
 
 li {
     background-color: #EEEEEE;
-    border: 1px solid #666666;
+    border: 1px solid #999999;
+    border-collapse: separate;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 3px 3px 3px #999999;
+    box-shadow: 2px 2px 2px #999999;
+    margin-bottom: -1px;
     
 }
 
@@ -60,8 +66,12 @@ li:nth-child(2n+3) {
     border-radius: 5px 0 0 5px
 }
 
-li:last-child {
+li:last-child:nth-child(2n) {
     border-radius: 0 5px 5px 5px;
+}
+
+li:last-child:nth-child(2n+1) {
+    border-radius: 5px 0 5px 5px;
 }
 
 @media (min-width: 250px) {
