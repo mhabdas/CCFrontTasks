@@ -167,15 +167,11 @@ const runicTable = [{
 exports.generateRunicWords = length => {
 
     // Sorting objects in arrays by power value
-    compare = (a, b) => {
-        if (a.power > b.power)
-            return -1;
-        if (a.power < b.power)
-            return 1;
-        return 0
-    }
 
-    let sortedRunicTable = runicTable.sort(compare);
+    let sortedRunicTable = runicTable.sort( (a, b) => {
+       return b.power - a.power
+    });
+
 
     let runicWords = [];
 
@@ -183,8 +179,14 @@ exports.generateRunicWords = length => {
 
     let newTable = [];
 
+    if (typeof length !== "number") {
+        return "Your input must be a number!"
+    } else if (length < 1 || length > runicTable.length) {
+        return "Your number is too big or too small!"
+    } else {
 
     // Splitting sorted runic array by the length argument
+
     for (let i = 0; i < sortedRunicTable.length; i += length) {
         myChunk = sortedRunicTable.slice(i, i + length);
         mostPowerfulRunes.push(myChunk);
@@ -219,6 +221,7 @@ exports.generateRunicWords = length => {
     }
 
     return runicWords
+}
 }
 
 
