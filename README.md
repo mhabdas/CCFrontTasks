@@ -1,1 +1,1 @@
-# ClearCode Front-End Intern Tasks
+# Clearcode Front-End Intern Tasks
